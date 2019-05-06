@@ -93,31 +93,33 @@ class Dashing.AmazonPrice extends Dashing.Widget
   storage_cost: 0.0
   network_cost: 0.0
   red_storage: 0.0
-  rhino_storage: 0.0
+  tusker_storage: 0.0
   crane_storage: 0.0
   total_storage: 0.0
+  tusker_cores: 0.0
+  crane_cores: 0.0
   total_cores: 0.0
 
   @accessor 'total_cores', ->
     if @get('CraneCores')
        @crane_cores = parseFloat(@get('CraneCores'))
-    if @get('RhinoCores')
-       @rhino_cores = parseFloat(@get('RhinoCores'))
-    @crane_cores + @rhino_cores
+    if @get('TuskerCores')
+       @tusker_cores = parseFloat(@get('TuskerCores'))
+    @crane_cores + @tusker_cores
 
   @accessor 'total_storage', ->
     if @get('redStorage')
        @red_storage = parseFloat(@get('redStorage'))
 
-    if @get('rhinoStorage')
-       @rhino_storage = parseFloat(@get('rhinoStorage'))
+    if @get('tuskerStorage')
+       @tusker_storage = parseFloat(@get('tuskerStorage'))
 
     if @get('craneStorage')
        @crane_storage = parseFloat(@get('craneStorage'))
 
 
 
-    @red_storage + @rhino_storage + @crane_storage
+    @red_storage + @tusker_storage + @crane_storage
  
   @accessor 'current_hourly', ->
     if @get('total_cores')
